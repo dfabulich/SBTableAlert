@@ -86,19 +86,19 @@ typedef enum {
 
 @interface SBTableAlert : NSObject <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate> {}
 
-@property (nonatomic, retain) UIAlertView *view;
-@property (nonatomic, retain) UITableView *tableView;
+@property (nonatomic) UIAlertView *view;
+@property (nonatomic) UITableView *tableView;
 @property (nonatomic) SBTableAlertType type;
 @property (nonatomic) SBTableAlertStyle style;
 @property (nonatomic) NSInteger maximumVisibleRows; // default 4, (nice in both orientations w/ rowHeigh == 40), if -1 is passed it will display the whole table.
 @property (nonatomic) CGFloat rowHeight; // default 40, (default in UITableView == 44)
 
-@property (nonatomic, assign) id <SBTableAlertDelegate> delegate;
-@property (nonatomic, assign) id <SBTableAlertDataSource> dataSource;
+@property (nonatomic, unsafe_unretained) id <SBTableAlertDelegate> delegate;
+@property (nonatomic, unsafe_unretained) id <SBTableAlertDataSource> dataSource;
 
-@property (nonatomic, assign) id <UITableViewDelegate> tableViewDelegate; // default self, (set other for more advanded use)
-@property (nonatomic, assign) id <UITableViewDataSource> tableViewDataSource; // default self, (set other for more advanded use)
-@property (nonatomic, assign) id <UIAlertViewDelegate> alertViewDelegate; // default self, (set other for more advanded use)
+@property (nonatomic, unsafe_unretained) id <UITableViewDelegate> tableViewDelegate; // default self, (set other for more advanded use)
+@property (nonatomic, unsafe_unretained) id <UITableViewDataSource> tableViewDataSource; // default self, (set other for more advanded use)
+@property (nonatomic, unsafe_unretained) id <UIAlertViewDelegate> alertViewDelegate; // default self, (set other for more advanded use)
 
 - (id)initWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelTitle messageFormat:(NSString *)message, ...;
 + (id)alertWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelTitle messageFormat:(NSString *)message, ...;

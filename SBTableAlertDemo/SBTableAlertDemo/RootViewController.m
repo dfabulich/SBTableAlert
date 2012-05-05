@@ -54,7 +54,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 
 	if ([indexPath row] == 1)
 		[cell.textLabel setText:@"Single Select"];
@@ -113,10 +113,6 @@
     // For example: self.myOutlet = nil;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 #pragma mark - SBTableAlertDataSource
 
@@ -124,10 +120,10 @@
 	UITableViewCell *cell;
 	
 	if (tableAlert.view.tag == 0 || tableAlert.view.tag == 1) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
 	} else {
 		// Note: SBTableAlertCell
-		cell = [[[SBTableAlertCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil] autorelease];
+		cell = [[SBTableAlertCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
 	}
 	
 	[cell.textLabel setText:[NSString stringWithFormat:@"Cell %d", indexPath.row]];
@@ -173,7 +169,6 @@
 - (void)tableAlert:(SBTableAlert *)tableAlert didDismissWithButtonIndex:(NSInteger)buttonIndex {
 	NSLog(@"Dismissed: %i", buttonIndex);
 	
-	[tableAlert release];
 }
 
 
