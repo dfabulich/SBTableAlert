@@ -70,7 +70,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	SBTableAlert *alert;
 	if ([indexPath row] == 1) {
 		alert	= [[SBTableAlert alloc] initWithTitle:@"Single Select" cancelButtonTitle:@"Cancel" messageFormat:nil];
 		[alert.view setTag:1];
@@ -168,7 +167,7 @@
 
 - (void)tableAlert:(SBTableAlert *)tableAlert didDismissWithButtonIndex:(NSInteger)buttonIndex {
 	NSLog(@"Dismissed: %i", buttonIndex);
-	
+	alert = nil;
 }
 
 

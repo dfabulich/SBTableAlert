@@ -10,7 +10,7 @@
 #import "SBTableAlert.h"
 
 @interface RootViewController : UITableViewController <SBTableAlertDelegate, SBTableAlertDataSource>{
-
+    SBTableAlert *alert;
 }
 
 
